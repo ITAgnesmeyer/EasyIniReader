@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Runtime.InteropServices;
 
-namespace EasyIniReader
+namespace EasyIniReader.Api
 {
     internal static class NativeMethods
     {

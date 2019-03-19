@@ -6,7 +6,7 @@ namespace EasyIniReaderTest
     [TestClass]
     public class IniReaderFailTest
     {
-        private readonly EasyIniReader.IniReader _Reader = new EasyIniReader.IniReader(string.Empty);
+        private readonly EasyIniReader.IniReaderApi _Reader = new EasyIniReader.IniReaderApi(string.Empty);
 
         [TestMethod]
         public void TestReadFalseWithException()

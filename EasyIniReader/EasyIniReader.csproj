@@ -2,6 +2,12 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <Authors>Dipl.-Ing.(FH) Guido Agnesmeyer</Authors>
+    <Description>small lib for reading + writing INI-Files(Window)</Description>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>D:\Develope\DIGA\EasyIniReader\EasyIniReader\EasyIniReader.xml</DocumentationFile>
   </PropertyGroup>
 
 </Project>

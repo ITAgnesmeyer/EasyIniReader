@@ -1,0 +1,329 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>EasyIniReader</name>
+    </assembly>
+    <members>
+        <member name="M:EasyIniReader.Api.NativeMethods.WriteProfileSection(System.String,System.String)">
+             Return Type: BOOL->int
+            lpAppName: LPCWSTR->WCHAR*
+            lpString: LPCWSTR->WCHAR*
+        </member>
+        <member name="M:EasyIniReader.Api.NativeMethods.WriteProfileString(System.String,System.String,System.String)">
+             Return Type: BOOL->int
+            lpAppName: LPCWSTR->WCHAR*
+            lpKeyName: LPCWSTR->WCHAR*
+            lpString: LPCWSTR->WCHAR*
+        </member>
+        <member name="M:EasyIniReader.Api.NativeMethods.GetProfileSection(System.String,System.Text.StringBuilder,System.UInt32)">
+             Return Type: DWORD->unsigned int
+            lpAppName: LPCWSTR->WCHAR*
+            lpReturnedString: LPWSTR->WCHAR*
+            nSize: DWORD->unsigned int
+        </member>
+        <member name="M:EasyIniReader.Api.NativeMethods.GetProfileString(System.String,System.String,System.String,System.Text.StringBuilder,System.UInt32)">
+             Return Type: DWORD->unsigned int
+            lpAppName: LPCWSTR->WCHAR*
+            lpKeyName: LPCWSTR->WCHAR*
+            lpDefault: LPCWSTR->WCHAR*
+            lpReturnedString: LPWSTR->WCHAR*
+            nSize: DWORD->unsigned int
+        </member>
+        <member name="M:EasyIniReader.Api.NativeMethods.GetProfileInt(System.String,System.String,System.Int32)">
+             Return Type: UINT->unsigned int
+            lpAppName: LPCWSTR->WCHAR*
+            lpKeyName: LPCWSTR->WCHAR*
+            nDefault: INT->int
+        </member>
+        <member name="M:EasyIniReader.Api.NativeMethods.WritePrivateProfileString(System.String,System.String,System.String,System.String)">
+             Return Type: BOOL->int
+            lpAppName: LPCWSTR->WCHAR*
+            lpKeyName: LPCWSTR->WCHAR*
+            lpString: LPCWSTR->WCHAR*
+            lpFileName: LPCWSTR->WCHAR*
+        </member>
+        <member name="M:EasyIniReader.Api.NativeMethods.WritePrivateProfileStruct(System.String,System.String,System.IntPtr,System.UInt32,System.String)">
+             Return Type: BOOL->int
+            lpszSection: LPCWSTR->WCHAR*
+            lpszKey: LPCWSTR->WCHAR*
+            lpStruct: LPVOID->void*
+            uSizeStruct: UINT->unsigned int
+            szFile: LPCWSTR->WCHAR*
+        </member>
+        <member name="M:EasyIniReader.Api.NativeMethods.WritePrivateProfileSection(System.String,System.String,System.String)">
+             Return Type: BOOL->int
+            lpAppName: LPCWSTR->WCHAR*
+            lpString: LPCWSTR->WCHAR*
+            lpFileName: LPCWSTR->WCHAR*
+        </member>
+        <member name="M:EasyIniReader.Api.NativeMethods.GetPrivateProfileSectionNamesW(System.Text.StringBuilder,System.UInt32,System.String)">
+             Return Type: DWORD->unsigned int
+            lpszReturnBuffer: LPWSTR->WCHAR*
+            nSize: DWORD->unsigned int
+            lpFileName: LPCWSTR->WCHAR*
+        </member>
+        <member name="M:EasyIniReader.Api.NativeMethods.GetPrivateProfileSectionW(System.String,System.Text.StringBuilder,System.UInt32,System.String)">
+             Return Type: DWORD->unsigned int
+            lpAppName: LPCWSTR->WCHAR*
+            lpReturnedString: LPWSTR->WCHAR*
+            nSize: DWORD->unsigned int
+            lpFileName: LPCWSTR->WCHAR*
+        </member>
+        <member name="M:EasyIniReader.Api.NativeMethods.GetPrivateProfileStructW(System.String,System.String,System.IntPtr,System.UInt32,System.String)">
+             Return Type: BOOL->int
+            lpszSection: LPCWSTR->WCHAR*
+            lpszKey: LPCWSTR->WCHAR*
+            lpStruct: LPVOID->void*
+            uSizeStruct: UINT->unsigned int
+            szFile: LPCWSTR->WCHAR*
+        </member>
+        <member name="M:EasyIniReader.Api.NativeMethods.GetPrivateProfileStringW(System.String,System.String,System.String,System.Text.StringBuilder,System.UInt32,System.String)">
+             Return Type: DWORD->unsigned int
+            lpAppName: LPCWSTR->WCHAR*
+            lpKeyName: LPCWSTR->WCHAR*
+            lpDefault: LPCWSTR->WCHAR*
+            lpReturnedString: LPWSTR->WCHAR*
+            nSize: DWORD->unsigned int
+            lpFileName: LPCWSTR->WCHAR*
+        </member>
+        <member name="M:EasyIniReader.Api.NativeMethods.GetPrivateProfileIntW(System.String,System.String,System.Int32,System.String)">
+             Return Type: UINT->unsigned int
+            lpAppName: LPCWSTR->WCHAR*
+            lpKeyName: LPCWSTR->WCHAR*
+            nDefault: INT->int
+            lpFileName: LPCWSTR->WCHAR*
+        </member>
+        <member name="M:EasyIniReader.Api.NativeMethods.FormatMessage(System.UInt32,System.IntPtr,System.UInt32,System.UInt32,System.Text.StringBuilder,System.UInt32,System.IntPtr@)">
+             Return Type: DWORD->unsigned int
+            dwFlags: DWORD->unsigned int
+            lpSource: LPCVOID->void*
+            dwMessageId: DWORD->unsigned int
+            dwLanguageId: DWORD->unsigned int
+            lpBuffer: LPWSTR->WCHAR*
+            nSize: DWORD->unsigned int
+            Arguments: va_list*
+        </member>
+        <member name="T:EasyIniReader.IniReader">
+            <summary>
+            Native IniReader
+            </summary>
+        </member>
+        <member name="P:EasyIniReader.IniReader.AutoSave">
+            <summary>
+            AutoSave: Enable or disables saving when using the Write-Functions
+            </summary>
+            <remarks>
+            To disable the AutoSave property can increase the performance.
+            Set write all your values and then finally call Save.
+            </remarks>
+        </member>
+        <member name="M:EasyIniReader.IniReader.#ctor(System.String)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="fileName">INI-File</param>
+        </member>
+        <member name="M:EasyIniReader.IniReader.Save">
+            <summary>
+            Save data to INI-File
+            </summary>
+            <remarks>
+            This is only necessary if you disable AutoSave
+            </remarks>
+            <returns></returns>
+        </member>
+        <member name="M:EasyIniReader.IniReader.GetIniValueString(System.String,System.String,System.String)">
+            <summary>
+            Get Ini-Value as string
+            </summary>
+            <param name="appName">section</param>
+            <param name="key">key</param>
+            <param name="defaultValue">default value optional ""</param>
+            <returns>String</returns>
+        </member>
+        <member name="M:EasyIniReader.IniReader.GetIniValueInt(System.String,System.String,System.Int32)">
+            <summary>
+            Get Ini-Value as Int
+            </summary>
+            <param name="appName">section</param>
+            <param name="key">key</param>
+            <param name="defaultValue">default value optional default = 0</param>
+            <returns>Integer </returns>
+        </member>
+        <member name="M:EasyIniReader.IniReader.GetIniValueBool(System.String,System.String,System.Boolean)">
+            <summary>
+            Get INI-Value as bool
+            </summary>
+            <param name="appName">section</param>
+            <param name="key">key</param>
+            <param name="defaultValue">default value optional false</param>
+            <returns>true or false</returns>
+        </member>
+        <member name="M:EasyIniReader.IniReader.WriteIniValue(System.String,System.String,System.String)">
+            <summary>
+            Write String to INI-Value
+            </summary>
+            <param name="appName"></param>
+            <param name="key"></param>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyIniReader.IniReader.WriteIniValue(System.String,System.String,System.Int32)">
+            <summary>
+            Write int to INI-Value
+            </summary>
+            <param name="appName"></param>
+            <param name="key"></param>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyIniReader.IniReader.WriteIniValue(System.String,System.String,System.Boolean)">
+            <summary>
+            Write Bool to INI-Value
+            </summary>
+            <param name="appName"></param>
+            <param name="key"></param>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="T:EasyIniReader.IniReaderApi">
+            <summary>
+            Reader fo private Ini Files
+            </summary>
+        </member>
+        <member name="M:EasyIniReader.IniReaderApi.#ctor(System.String)">
+            <summary>
+            CTOR: You must give a File
+            </summary>
+            <param name="fileName">Ini-File name</param>
+        </member>
+        <member name="M:EasyIniReader.IniReaderApi.GetIniValueString(System.String,System.String,System.String)">
+            <summary>
+            Get Ini-Value as string
+            </summary>
+            <param name="appName">Section</param>
+            <param name="key">Key</param>
+            <param name="defaultValue">default Value</param>
+            <returns>Ini-Value as string</returns>
+        </member>
+        <member name="M:EasyIniReader.IniReaderApi.GetIniValueInt(System.String,System.String,System.Int32)">
+            <summary>
+            Get Ini-Value as int
+            </summary>
+            <param name="appName">section</param>
+            <param name="key">key</param>
+            <param name="defaultValue">default value</param>
+            <returns>Ini-Value as string</returns>
+        </member>
+        <member name="M:EasyIniReader.IniReaderApi.GetIniValueBool(System.String,System.String,System.Boolean)">
+            <summary>
+            Get Ini-Value as bool 
+            </summary>
+            <remarks>
+            Bool - Values are 1 for true and 0 for false
+            </remarks>
+            <param name="appName">section Name</param>
+            <param name="key">key</param>
+            <param name="defaultValue">default Value</param>
+            <returns>true or false</returns>
+        </member>
+        <member name="M:EasyIniReader.IniReaderApi.WriteIniValue(System.String,System.String,System.String)">
+            <summary>
+            Write Ini-Value as string 
+            </summary>
+            <param name="appName">section</param>
+            <param name="key">key</param>
+            <param name="value">Value as string</param>
+            <returns>true or false</returns>
+        </member>
+        <member name="M:EasyIniReader.IniReaderApi.WriteIniValue(System.String,System.String,System.Int32)">
+            <summary>
+            Write IniValue as int
+            </summary>
+            <param name="appName">section</param>
+            <param name="key">key</param>
+            <param name="value">value as int</param>
+            <returns>true or flase</returns>
+        </member>
+        <member name="M:EasyIniReader.IniReaderApi.WriteIniValue(System.String,System.String,System.Boolean)">
+            <summary>
+            Write ini-Value as bool
+            </summary>
+            <remarks>
+            true => 1
+            false => 0
+            </remarks>
+            <param name="appName">section</param>
+            <param name="key">key</param>
+            <param name="value">value as bool</param>
+            <returns>true or false</returns>
+        </member>
+        <member name="T:EasyIniReader.SystemIniReader">
+            <summary>
+            IniReader for System-INI
+            </summary>
+        </member>
+        <member name="M:EasyIniReader.SystemIniReader.WriteIniSection(System.String,System.String)">
+            <summary>
+            Write a section
+            </summary>
+            <param name="appName">application Name</param>
+            <param name="sectionName">section</param>
+            <returns>true or false</returns>
+        </member>
+        <member name="M:EasyIniReader.SystemIniReader.ReadIniSection(System.String)">
+            <summary>
+            Reads as Section
+            </summary>
+            <param name="appName"></param>
+            <returns>true or false</returns>
+        </member>
+        <member name="M:EasyIniReader.SystemIniReader.WriteIniValue(System.String,System.String,System.String)">
+            <summary>
+            Write ini-value as string
+            </summary>
+            <param name="appName">section</param>
+            <param name="key">key</param>
+            <param name="value">value</param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyIniReader.SystemIniReader.WriteIniValue(System.String,System.String,System.Int32)">
+            <summary>
+            Write ini-value as int
+            </summary>
+            <param name="appName">section</param>
+            <param name="key">key</param>
+            <param name="value">value as int</param>
+            <returns>true or false</returns>
+        </member>
+        <member name="M:EasyIniReader.SystemIniReader.WriteIniValue(System.String,System.String,System.Boolean)">
+            <summary>
+            Writes Ini-Value as bool 
+            </summary>
+            <remarks>
+            true = 1
+            false = 0
+            </remarks>
+            <param name="appName">section</param>
+            <param name="key">key</param>
+            <param name="value">value as bool </param>
+            <returns>true or false</returns>
+        </member>
+        <member name="M:EasyIniReader.SystemIniReader.GetIniValue(System.String,System.String)">
+            <summary>
+            Get Ini-Value as string
+            </summary>
+            <param name="appName">section</param>
+            <param name="key">key</param>
+            <returns>ini-value as string</returns>
+        </member>
+        <member name="M:EasyIniReader.SystemIniReader.GetIniIntValue(System.String,System.String)">
+            <summary>
+            Get Ini-Value as int
+            </summary>
+            <param name="appName">section</param>
+            <param name="key">key</param>
+            <returns>true or false</returns>
+        </member>
+    </members>
+</doc>
